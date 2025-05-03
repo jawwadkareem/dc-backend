@@ -2,18 +2,17 @@ const connectToDatabase = require('../../utils/db');
 const Task = require('../../models/Task');
 
 module.exports = async (req, res) => {
-  // ✅ CORS headers
-  res.setHeader('Access-Control-Allow-Origin', '*');
+  // ✅ Set CORS headers for all responses
+  res.setHeader('Access-Control-Allow-Origin', 'https://distributed-computing-cep.vercel.app');
   res.setHeader('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
-  // ✅ Handle OPTIONS preflight
+  // ✅ Respond to preflight request
   if (req.method === 'OPTIONS') {
     return res.status(200).end();
   }
 
   await connectToDatabase();
-
   const { id } = req.query;
 
   try {
