@@ -1,0 +1,22 @@
+{
+    "version": 2,
+    "builds": [
+      {
+        "src": "api/**/*.js",
+        "use": "@vercel/node"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/api/tasks",
+        "methods": ["GET", "POST"],
+        "dest": "/api/tasks/index.js"
+      },
+      {
+        "src": "/api/tasks/(.*)",
+        "methods": ["PUT", "DELETE"],
+        "dest": "/api/tasks/[id].js"
+      }
+    ]
+  }
+  
