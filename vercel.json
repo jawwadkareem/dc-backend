@@ -8,6 +8,21 @@
   ],
   "routes": [
     {
+      "src": "/api/auth/register",
+      "methods": ["POST", "OPTIONS"],
+      "dest": "/api/auth/register.js"
+    },
+    {
+      "src": "/api/auth/login",
+      "methods": ["POST", "OPTIONS"],
+      "dest": "/api/auth/login.js"
+    },
+    {
+      "src": "/api/auth/me",
+      "methods": ["GET", "OPTIONS"],
+      "dest": "/api/auth/me.js"
+    },
+    {
       "src": "/api/tasks",
       "methods": ["GET", "POST", "OPTIONS"],
       "dest": "/api/tasks/index.js"
