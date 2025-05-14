@@ -68,15 +68,16 @@
 //   }
 // }
 
-
 const connectToDatabase = require("../../utils/db")
 const Task = require("../../models/Task")
 const auth = require("../../middleware/auth")
 
 module.exports = async (req, res) => {
-  res.setHeader("Access-Control-Allow-Origin", "*")
+  // Update the CORS headers to allow requests from your frontend domain
+  res.setHeader("Access-Control-Allow-Origin", "https://distributed-computing-cep.vercel.app")
   res.setHeader("Access-Control-Allow-Methods", "GET, OPTIONS")
   res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization")
+  res.setHeader("Access-Control-Allow-Credentials", "true")
 
   if (req.method === "OPTIONS") {
     return res.status(200).end()
